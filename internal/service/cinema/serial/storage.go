@@ -33,6 +33,24 @@ var sampleData = []cinema.Serial{
 		SeasonsNum: 5,
 		IsDeleted:  false,
 	},
+	{
+		Title:      "Офис",
+		Genre:      "Комедия",
+		SeasonsNum: 9,
+		IsDeleted:  false,
+	},
+	{
+		Title:      "Клиника",
+		Genre:      "Комедия",
+		SeasonsNum: 9,
+		IsDeleted:  false,
+	},
+	{
+		Title:      "Игра престолов",
+		Genre:      "фэнтези",
+		SeasonsNum: 8,
+		IsDeleted:  false,
+	},
 }
 
 func fillStorageBySampleData(service SerialService) {

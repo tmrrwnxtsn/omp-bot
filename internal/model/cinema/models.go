@@ -12,7 +12,17 @@ type Serial struct {
 
 func (s *Serial) String() string {
 	return fmt.Sprintf(
-		"Serial{ID=%d,Title=%s,Genre=%s,SeasonsNum=%d,IsDeleted=%t}",
-		s.ID, s.Title, s.Genre, s.SeasonsNum, s.IsDeleted,
+		"Serial{\n"+
+			"\tID=%d,\n"+
+			"\tTitle=%s,\n"+
+			"\tGenre=%s,\n"+
+			"\tSeasonsNum=%d,\n"+
+			"\tIsDeleted=%t\n"+
+			"}",
+		s.ID,
+		s.Title,
+		s.Genre,
+		s.SeasonsNum,
+		s.IsDeleted,
 	)
 }

@@ -1,6 +1,7 @@
 package router
 
 import (
+	"github.com/ozonmp/omp-bot/internal/app/commands/cinema"
 	"log"
 	"runtime/debug"
 
@@ -41,7 +42,8 @@ type Router struct {
 	// estate
 	// rating
 	// security
-	// cinema
+	// cinemaCommander
+	cinemaCommander Commander
 	// logistic
 	// product
 	// education
@@ -76,7 +78,8 @@ func NewRouter(
 		// estate
 		// rating
 		// security
-		// cinema
+		// cinemaCommander
+		cinemaCommander: cinema.NewCinemaCommander(bot),
 		// logistic
 		// product
 		// education
@@ -151,7 +154,7 @@ func (c *Router) handleCallback(callback *tgbotapi.CallbackQuery) {
 	case "security":
 		break
 	case "cinema":
-		break
+		c.cinemaCommander.HandleCallback(callback, callbackPath)
 	case "logistic":
 		break
 	case "product":
@@ -222,7 +225,7 @@ func (c *Router) handleMessage(msg *tgbotapi.Message) {
 	case "security":
 		break
 	case "cinema":
-		break
+		c.cinemaCommander.HandleCommand(msg, commandPath)
 	case "logistic":
 		break
 	case "product":

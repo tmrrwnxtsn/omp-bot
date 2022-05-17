@@ -12,13 +12,13 @@ func (s *DummySerialService) List(cursor uint64, limit uint64) ([]cinema.Serial,
 		from = cursor - 1
 	}
 
-	until := from + limit
+	until := from + limit - 1
 	if until >= uint64(len(s.storage)) {
 		return []cinema.Serial{}, nil
 	}
 
 	result := make([]cinema.Serial, 0, limit)
-	for i := from; i <= until && i <= uint64(len(s.storage)); i++ {
+	for i := from; i <= until && i < uint64(len(s.storage)); i++ {
 		serial := *s.storage[i]
 		if serial.IsDeleted {
 			if until+1 < uint64(len(s.storage)) {
