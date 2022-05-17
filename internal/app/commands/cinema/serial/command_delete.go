@@ -12,13 +12,13 @@ func (c *CinemaSerialCommander) Delete(inputMessage *tgbotapi.Message) {
 
 	id, err := strconv.ParseUint(args, 10, 64)
 	if err != nil {
-		log.Println("wrong args", args)
+		log.Printf("CinemaSerialCommander.Delete: wrong args (%s) - %v", args, err)
 		return
 	}
 
 	_, err = c.serialService.Remove(id)
 	if err != nil {
-		log.Printf("fail to delete serial with id %d: %v", id, err)
+		log.Printf("CinemaSerialCommander.Delete: fail to delete serial with id %d - %v", id, err)
 		return
 	}
 

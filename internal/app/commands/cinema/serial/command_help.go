@@ -11,8 +11,8 @@ func (c *CinemaSerialCommander) Help(inputMessage *tgbotapi.Message) {
 			"/get__cinema__serial serialID — get a serial\n"+
 			"/list__cinema__serial cursor limit — get a list of serials\n"+
 			"/delete__cinema__serial serialID — delete an existing serial\n"+
-			"/new__cinema__serial — create a new serial\n"+
-			"/edit__cinema__serial serialID — edit a serial",
+			"/new__cinema__serial title genre seasons_number — create a new serial\n"+
+			"/edit__cinema__serial serialID field-new_value — edit a serial",
 	)
 
 	_, err := c.bot.Send(msg)
